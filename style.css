@@ -1,0 +1,566 @@
+/* --- Pengaturan Global & Font --- */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
+:root {
+    --primary-color: #007bff;
+    --primary-hover-color: #0056b3;
+    --text-dark: #343a40;
+    --text-light: #6c757d;
+    --bg-light: #f8f9fa;
+    --border-color: #dee2e6;
+    --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
+}
+
+/* --- Import Font Modern (Poppins) --- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&display=swap');
+
+/* Mengatur warna latar belakang utama agar header putih terlihat kontras */
+body {
+    background-color: #f8f9fa; 
+    font-family: 'Poppins', sans-serif; /* Mengganti font utama agar seragam */
+}
+
+/* === HEADER MINIMALIS MODERN === */
+header {
+    background-color: #ffffff; /* Latar belakang putih bersih */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); /* Bayangan sangat halus */
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid #e9ecef;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --- Logo --- */
+nav .logo {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #212529; /* Warna hitam lembut */
+    text-decoration: none;
+}
+
+/* --- Menu Navigasi --- */
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 1rem;
+}
+
+nav ul li a {
+    color: #495057; /* Abu-abu tua untuk teks menu */
+    font-weight: 500;
+    text-decoration: none;
+    padding: 10px 18px;
+    border-radius: 8px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+/* Efek hover yang simpel dan modern */
+nav ul li a:hover {
+    color: #007bff; /* Warna biru saat disentuh */
+    background-color: #f0f7ff; /* Latar belakang biru sangat muda */
+}
+
+/* Style untuk link yang sedang aktif */
+nav ul li.active a {
+    color: #007bff;
+    background-color: #f0f7ff;
+    font-weight: 600;
+}
+
+/* --- Bagian Hero & Judul --- */
+.hero-section {
+    background: linear-gradient(45deg, var(--primary-color), #00c6ff);
+    color: white;
+    text-align: center;
+    padding: 4rem 2rem;
+    margin-bottom: 2rem;
+}
+.hero-section h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+.section-title { text-align: center; font-size: 2rem; font-weight: 600; margin-bottom: 2rem; }
+
+
+/* --- Kartu Produk (Product Card) --- */
+.product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 2.5rem; }
+
+.product-card {
+    background-color: #fff;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: var(--card-shadow);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: flex;
+    flex-direction: column;
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.product-card a { text-decoration: none; color: inherit; flex-grow: 1; }
+
+.product-image-container {
+    width: 100%;
+    aspect-ratio: 1 / 1; /* Membuat gambar selalu persegi */
+    background-color: var(--bg-light);
+}
+.product-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Gambar akan mengisi kotak tanpa distorsi */
+}
+
+.product-info {
+    padding: 1.5rem;
+}
+.product-info h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0 0 0.5rem 0;
+    height: 44px; /* Batasi tinggi untuk 2 baris teks */
+    overflow: hidden;
+}
+.product-info .price {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+
+/* --- Tombol yang Menarik --- */
+.btn.btn-primary {
+    background: var(--primary-color);
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    display: block;
+    width: calc(100% - 3rem); /* Lebar dikurangi padding kiri-kanan */
+    margin: 0 1.5rem 1.5rem 1.5rem;
+    text-align: center;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn.btn-primary:hover {
+    background-color: var(--primary-hover-color);
+    transform: scale(1.05);
+}
+
+
+/* --- Footer --- */
+footer { text-align: center; padding: 2rem; margin-top: 2rem; background-color: var(--text-dark); color: white; }
+/* ===================================== */
+/* Style untuk Halaman Keranjang Belanja */
+/* ===================================== */
+
+/* --- Layout Utama Halaman Keranjang --- */
+.cart-page-wrapper {
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* 2 bagian untuk item, 1 bagian untuk summary */
+    gap: 2.5rem;
+    align-items: flex-start;
+}
+
+@media (max-width: 992px) {
+    .cart-page-wrapper {
+        grid-template-columns: 1fr; /* Jadi 1 kolom di layar kecil */
+    }
+}
+
+
+/* --- Tabel Keranjang yang Diperbarui --- */
+.cart-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.cart-table thead th {
+    text-align: left;
+    padding-bottom: 1rem;
+    color: var(--text-light);
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    border-bottom: 2px solid var(--border-color);
+}
+
+.cart-table tbody td {
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--border-color);
+    vertical-align: middle;
+}
+
+.cart-product-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.cart-product-info img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 10px;
+    background-color: var(--bg-light);
+}
+
+.cart-product-info .details h4 {
+    margin: 0 0 5px 0;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.cart-product-info .details span {
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+.cart-table .btn-danger {
+    color: var(--danger-color);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+.cart-table .btn-danger:hover {
+    text-decoration: underline;
+}
+
+
+/* --- Kotak Ringkasan (Summary) --- */
+.cart-summary {
+    background-color: var(--bg-light);
+    padding: 2rem;
+    border-radius: 15px;
+    position: sticky; /* Tetap terlihat saat scroll */
+    top: 120px;
+}
+
+.cart-summary h3 {
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 1rem;
+    font-weight: 600;
+}
+
+.summary-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+}
+
+.summary-total .price {
+    color: var(--primary-color);
+}
+
+.cart-summary .btn {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 15px;
+    font-size: 1.1rem;
+}
+
+
+/* --- Tampilan Saat Keranjang Kosong --- */
+.cart-empty {
+    text-align: center;
+    padding: 4rem 2rem;
+    background-color: var(--bg-light);
+    border-radius: 15px;
+}
+
+.cart-empty h2 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.cart-empty p {
+    color: var(--text-light);
+    margin-bottom: 2rem;
+}
+/* ===================================== */
+/* Style untuk Halaman Checkout          */
+/* ===================================== */
+
+/* --- Layout Utama Halaman Checkout (2 Kolom) --- */
+.checkout-page-layout {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr; /* Form lebih besar dari summary */
+    gap: 2.5rem;
+    align-items: flex-start;
+}
+
+@media (max-width: 992px) {
+    .checkout-page-layout {
+        grid-template-columns: 1fr; /* Jadi 1 kolom di layar kecil */
+    }
+}
+
+/* --- Kotak Form Alamat --- */
+.checkout-form-container {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: var(--card-shadow);
+}
+
+.checkout-form-container h3 {
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 1rem;
+}
+
+.checkout-form-container .form-grup textarea {
+    width: 100%;
+    padding: 14px 18px;
+    border: 1px solid #dcdcdc;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 1rem;
+    font-family: 'Montserrat', sans-serif;
+    transition: all 0.2s ease-in-out;
+    background-color: #fafafa;
+    min-height: 120px;
+}
+
+.checkout-form-container .form-grup textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.15);
+    background-color: #fff;
+}
+
+
+/* --- Kotak Ringkasan Pesanan (Order Summary) --- */
+.order-summary-container {
+    background-color: var(--bg-light);
+    padding: 2rem;
+    border-radius: 15px;
+    position: sticky;
+    top: 120px;
+}
+
+.order-summary-container h3 {
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 1rem;
+    font-weight: 600;
+}
+
+.summary-item {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.summary-item img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.summary-item .details {
+    flex-grow: 1;
+}
+
+.summary-item .details h4 {
+    margin: 0 0 4px 0;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+.summary-item .details span {
+    font-size: 0.8rem;
+    color: var(--text-light);
+}
+
+.summary-item .price {
+    font-weight: 600;
+}
+
+.summary-total-line {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.summary-total-line.grand-total {
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+.summary-total-line.grand-total .price {
+    color: var(--primary-color);
+}
+/* ===================================== */
+/* Style untuk Daftar Voucher Tersedia   */
+/* ===================================== */
+
+.available-vouchers {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.available-vouchers h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--text-dark);
+}
+
+.voucher-card {
+    background-color: #fff;
+    border: 2px dashed var(--secondary-color);
+    border-radius: var(--border-radius);
+    padding: 1rem;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.voucher-details .code {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--primary-color);
+    margin-bottom: 4px;
+}
+
+.voucher-details .desc {
+    font-size: 0.85rem;
+    color: var(--text-light);
+}
+
+.btn-copy {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    border: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.btn-copy:hover {
+    background-color: #7dbeb1;
+}
+/* --- Import Font Elegan dari Google Fonts --- */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@400;700&display=swap');
+
+/* --- Definisi Palet Warna Mewah & Properti Global --- */
+:root {
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Lato', sans-serif;
+    --primary-color: #005f73;
+    --secondary-color: #94d2bd;
+    --accent-color: #ee9b00;
+    --text-dark: #212529;
+    --text-light: #6c757d;
+    --bg-light: #f8f9fa;
+    --bg-white: #ffffff;
+    --border-color: #e9ecef;
+    --danger-color: #e74c3c;
+    --shadow-soft: 0 4px 15px rgba(0, 0, 0, 0.06);
+    --shadow-lifted: 0 10px 30px rgba(0, 0, 0, 0.1);
+    --border-radius: 12px;
+}
+
+/* --- Pengaturan Dasar & Halaman --- */
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-body); margin: 0; background-color: var(--bg-light); color: var(--text-dark); line-height: 1.7; }
+.container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+h1, h2, h3, h4 { font-family: var(--font-heading); color: var(--primary-color); }
+.section-title { text-align: center; font-size: 2.5rem; font-weight: 700; margin-bottom: 2rem; }
+
+/* --- Header & Navigasi --- */
+header { background-color: var(--bg-white); box-shadow: var(--shadow-soft); padding: 1rem 0; position: sticky; top: 0; z-index: 1000; }
+nav { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; padding: 0 20px;}
+nav .logo { font-family: var(--font-heading); font-size: 2rem; font-weight: 700; color: var(--primary-color); }
+nav ul { list-style: none; margin: 0; padding: 0; display: flex; gap: 1rem; }
+nav ul li a { color: var(--text-light); font-weight: 700; padding: 10px 15px; border-radius: 8px; transition: all 0.3s ease; }
+nav ul li a:hover { background-color: var(--bg-light); color: var(--primary-color); }
+
+/* --- Kartu Produk, Keranjang, Checkout, Voucher (Kode dari sebelumnya) --- */
+/* ... (Semua kode CSS untuk kartu produk, keranjang, checkout, voucher, dll. yang sudah kita buat sebelumnya ada di sini) ... */
+/* Saya akan ringkas di sini, tapi pastikan Anda menyalin versi lengkap dari jawaban sebelumnya jika perlu */
+
+/* --- INI BAGIAN YANG HILANG: Style untuk Iklan Pop-up --- */
+@keyframes pop-in { from { opacity: 0; transform: translateY(30px) scale(0.95); } to { opacity: 1; transform: translateY(0) scale(1); } }
+
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(33, 37, 41, 0.8);
+    backdrop-filter: blur(5px);
+    z-index: 1001;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+
+.popup-content {
+    background-color: var(--bg-white);
+    padding: 2.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-lifted);
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+    position: relative;
+    animation: pop-in 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.popup-close {
+    position: absolute; top: 10px; right: 15px; background: none; border: none;
+    font-size: 2.5rem; line-height: 1; color: #ccc; cursor: pointer; transition: all 0.3s ease;
+}
+.popup-close:hover { color: var(--text-dark); transform: rotate(90deg); }
+
+.popup-content h2 { font-size: 2.2rem; margin-top: 0; margin-bottom: 1rem; }
+.popup-content p { color: var(--text-light); font-size: 1.1rem; margin-bottom: 1.5rem; }
+
+.popup-voucher-code {
+    background-color: var(--bg-light);
+    border: 2px dashed var(--accent-color);
+    color: var(--primary-color);
+    padding: 1rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+}
+
+
+/* --- Footer --- */
+footer { text-align: center; padding: 3rem 1.5rem; margin-top: 3rem; background-color: var(--text-dark); color: var(--text-light); }

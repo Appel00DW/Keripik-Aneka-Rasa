@@ -1,0 +1,141 @@
+/* --- Import Font Modern --- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* --- Latar Belakang Animasi Gradien --- */
+@keyframes gradient-animation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    height: 100vh;
+    display: grid;
+    place-items: center;
+    background: linear-gradient(-45deg, #000428, #004e92, #1CB5E0, #000428);
+    background-size: 400% 400%;
+    animation: gradient-animation 15s ease infinite;
+    color: #333;
+}
+
+/* --- Container Utama (Tidak digunakan, tapi untuk reset) --- */
+.container {
+    padding: 0;
+    margin: 0;
+}
+
+/* --- Efek Kaca Buram (Glassmorphism) untuk Form --- */
+.form-container {
+    width: 100%;
+    max-width: 400px;
+    padding: 3rem;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.form-container h2 {
+    color: #fff;
+    font-size: 2rem;
+    font-weight: 600;
+    margin-top: 0;
+    margin-bottom: 2rem;
+}
+
+/* --- Grup Form & Input --- */
+.form-grup {
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+.form-grup label {
+    display: block;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.form-grup input {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    padding: 14px 16px;
+    color: #fff;
+    font-size: 1rem;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+.form-grup input::placeholder { /* Style untuk placeholder */
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.form-grup input:focus {
+    outline: none;
+    background: rgba(255, 255, 255, 0.25);
+    border-color: rgba(255, 255, 255, 0.7);
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1);
+}
+
+/* --- Tombol Aksen Mewah --- */
+.btn {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(45deg, #1CB5E0, #004e92);
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 78, 146, 0.3);
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 78, 146, 0.4);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+/* --- Pesan Error/Notifikasi --- */
+.pesan {
+    padding: 12px;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    color: #fff;
+    background-color: rgba(231, 76, 60, 0.7); /* Merah transparan */
+    text-align: center;
+    border: 1px solid rgba(231, 76, 60, 1);
+}
+/* ... (kode yang sudah ada sebelumnya) ... */
+
+/* --- Teks Link untuk Beralih Form --- */
+.form-text-info {
+    text-align: center;
+    margin-top: 1.5rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.form-text-info a {
+    color: #fff;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.form-text-info a:hover {
+    text-decoration: underline;
+    opacity: 0.8;
+}
